@@ -19,7 +19,10 @@ header {
 }
 
 .title-3d {
-    text-shadow: 2px 2px 0 #faf6f6;
+    text-shadow: 2px 2px 0 #faf6f6, 
+                 -2px -2px 5px rgba(0, 0, 0, 0.6);  /* Efecto 3D con sombra */
+    font-size: 2.5em;  /* Tamaño del texto aumentado */
+    font-weight: bold;  /* Negrita para un impacto mayor */
 }
 
 .title {
@@ -99,6 +102,19 @@ header {
     margin-top: 10px;
 }
 
+/* Enlace de WhatsApp */
+.whatsapp-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #25D366;  /* Color característico de WhatsApp */
+}
+
+.whatsapp-link img {
+    margin-right: 10px;  /* Espacio entre la imagen y el texto */
+    width: 40px;  /* Tamaño del icono */
+}
+
 /* Pie de página */
 footer {
     text-align: center;
@@ -107,9 +123,24 @@ footer {
     color: #333;
 }
 
+footer p {
+    font-size: 2em;  /* Aumenta el tamaño de la fuente */
+    color: #000;  /* Color negro */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6), 
+                 -2px -2px 5px rgba(0, 0, 0, 0.6);  /* Efecto 3D */
+    font-weight: bold;  /* Opcional, para hacer el texto más marcado */
+}
+
 footer a {
-    color: #FF6347;
+    color: #3b5998;  /* Color característico de Facebook */
     text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+footer a img {
+    margin-right: 10px;  /* Espacio entre el icono y el texto */
+    width: 30px;  /* Tamaño del icono de Facebook */
 }
 
 /* Estilos Responsivos */
@@ -125,6 +156,10 @@ footer a {
 
     .title {
         font-size: 1.5em;
+    }
+
+    footer {
+        padding: 15px;
     }
 }
 
