@@ -3,70 +3,124 @@ body {
     margin: 0;
     padding: 0;
     background-color: #625f5f;
-}
-
-header {
+  }
+  
+  header, footer {
     background-color: #ffffff;
     padding: 20px;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     position: relative;
     overflow: hidden;
-}
-
-.title-green {
+  }
+  
+  .title-green {
     color: #121514;
-}
-
-.title-3d {
+  }
+  
+  .title-3d {
     text-shadow: 2px 2px 0 #faf6f6, 
-                 -2px -2px 5px rgba(0, 0, 0, 0.6);  /* Efecto 3D con sombra */
-    font-size: 2.5em;  /* Tamaño del texto aumentado */
-    font-weight: bold;  /* Negrita para un impacto mayor */
-}
-
-.title {
+                 -2px -2px 5px rgba(0, 0, 0, 0.6);
+    font-size: 2.5em;
+    font-weight: bold;
+  }
+  
+  .title {
     width: 100%;
     text-align: center;
     font-size: 1.8em;
     color: #333;
     margin: 20px 0;
-}
-
-/* Nueva clase para cambiar el color de los títulos específicos a blanco */
-.title-white {
-    color: white; /* Cambia el color a blanco */
-}
-
-.gallery {
+  }
+  
+  .title-white {
+    color: white;
+  }
+  
+  .footer-title {
+    text-shadow: 2px 2px 0 #faf6f6, 
+                 -2px -2px 5px rgba(0, 0, 0, 0.6);
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #121514; /* Color del texto */
+  }
+  
+  /* Estilo para el contenedor de "Uñas" y "Peinados" */
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px 0; /* Margen superior e inferior */
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+  }
+  
+  .container::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    filter: blur(5px);
+    z-index: -1;
+  }
+  
+  .section-title {
+    text-shadow: 2px 2px 0 #faf6f6,
+                 -2px -2px 5px rgba(0, 0, 0, 0.6);
+    font-size: 2em;
+    font-weight: bold;
+    color: #333;
+    margin: 10px;
+  }
+  
+  .gallery {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     padding: 10px;
-}
-
-.image-card {
+  }
+  
+  .image-card {
     margin: 10px;
     cursor: pointer;
     border: 2px solid #ccc;
     border-radius: 10px;
     overflow: hidden;
     transition: transform 0.3s;
-}
-
-.image-card:hover {
+    position: relative;
+  }
+  
+  .image-card:hover {
     transform: scale(1.05);
     border-color: #6bcac2;
-}
-
-.image-card img {
-    width: 200px;
+  }
+  
+  .image-card img {
+    width: 100%;
     height: 200px;
     object-fit: cover;
-}
-
-/* Modal */
-.modal {
+  }
+  
+  .image-card::after {
+    content: "Presiona la imagen para visualizarla mejor";
+    display: block;
+    text-align: center;
+    background-color: #d3d3d3;
+    padding: 10px;
+    color: #333;
+    font-size: 1em;
+    margin-top: 5px;
+    border-radius: 5px;
+  }
+  
+  .modal {
     display: none;
     position: fixed;
     z-index: 1000;
@@ -76,96 +130,122 @@ header {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.8);
-}
-
-.modal-inner {
+  }
+  
+  .modal-inner {
     position: relative;
     margin: auto;
     padding: 20px;
-    width: 80%;
-    max-width: 600px;
+    width: 70%;
+    max-width: 400px;
     background-color: #d5d7d5;
     border-radius: 15px;
     text-align: center;
-}
-
-.modal-content {
+  }
+  
+  .modal-content {
     width: 70%;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-.modal-description {
+    object-fit: cover;
+    margin: 0 auto;
+  }
+  
+  .whatsapp-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #12da4e;
+    font-size: 1.2em;
+    margin-top: 10px;
+  }
+  
+  .whatsapp-link img {
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+  }
+  
+  .modal-description {
     color: #333;
     font-size: 1.2em;
     margin-top: 10px;
-}
-
-/* Enlace de WhatsApp */
-.whatsapp-link {
-    display: inline-flex;
+  }
+  
+  .facebook-link {
+    display: flex;
     align-items: center;
+    justify-content: center;
     text-decoration: none;
-    color: #25D366;  /* Color característico de WhatsApp */
-}
-
-.whatsapp-link img {
-    margin-right: 10px;  /* Espacio entre la imagen y el texto */
-    width: 40px;  /* Tamaño del icono */
-}
-
-/* Pie de página */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #ffffff;
-    color: #333;
-}
-
-footer p {
-    font-size: 2em;  /* Aumenta el tamaño de la fuente */
-    color: #000;  /* Color negro */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6), 
-                 -2px -2px 5px rgba(0, 0, 0, 0.6);  /* Efecto 3D */
-    font-weight: bold;  /* Opcional, para hacer el texto más marcado */
-}
-
-footer a {
-    color: #3b5998;  /* Color característico de Facebook */
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-}
-
-footer a img {
-    margin-right: 10px;  /* Espacio entre el icono y el texto */
-    width: 30px;  /* Tamaño del icono de Facebook */
-}
-
-/* Estilos Responsivos */
-@media (max-width: 600px) {
-    header h1 {
-        font-size: 1.8em;
+    color: #2d13d9;
+    font-size: 1.2em;
+    margin-top: 10px;
+  }
+  
+  .facebook-link img {
+    width: 50px;
+    height: 50px;
+    margin-right: 5px;
+  }
+  
+  @media (max-width: 600px) {
+    header h1, footer .footer-title, .section-title {
+      font-size: 1.8em;
     }
-
+  
     .image-card img {
-        width: 100px;
-        height: 100px;
+      width: 100%;
+      height: 150px;
     }
-
+  
     .title {
-        font-size: 1.5em;
+      font-size: 1.5em;
     }
-
-    footer {
-        padding: 15px;
+  
+    .image-card::after {
+      font-size: 0.9em;
+      padding: 8px;
     }
-}
-
-@media (min-width: 601px) and (max-width: 1200px) {
+  
+    .modal-inner {
+      width: 90%;
+    }
+  
+    .whatsapp-link img {
+      width: 15px;
+      height: 15px;
+    }
+  
+    .facebook-link img {
+      width: 25px;
+      height: 25px;
+    }
+  }
+  
+  @media (min-width: 601px) and (max-width: 1200px) {
     .image-card img {
-        width: 150px;
-        height: 150px;
+      width: 100%;
+      height: 180px;
     }
-}
+  
+    .image-card::after {
+      font-size: 1em;
+      padding: 10px;
+    }
+  
+    .modal-inner {
+      width: 80%;
+    }
+  
+    .whatsapp-link img {
+      width: 18px;
+      height: 18px;
+    }
+  
+    .facebook-link img {
+      width: 28px;
+      height: 28px;
+    }
+  }
