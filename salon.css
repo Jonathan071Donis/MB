@@ -60,22 +60,23 @@ header, footer {
     top: 20px;
     right: 20px;
     padding: 15px 30px;
-    background-color: #5ec26f;
-    color: white;
+    background-color: #26c6da; /* Verde menta */
+    color: rgb(9, 9, 9); /* Texto en negro */
     font-weight: bold;
     font-size: 1.2em;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-    text-shadow: 1px 1px 0 #faf6f6;
+    box-shadow: 4px 4px 10px rgba(76, 175, 80, 0.7); /* Sombra suave para el efecto 3D */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* Sombra de texto */
 }
 
 .agenda-cita-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
+    transform: translateY(-3px); /* Efecto de desplazamiento al pasar el mouse */
+    box-shadow: 6px 6px 15px rgba(76, 175, 80, 0.9); /* Sombra más intensa al pasar el mouse */
 }
+
 
 .container {
     display: flex;
@@ -298,58 +299,42 @@ header, footer {
     background-color: #60d6ee;
     padding: 20px;
     width: 50%;
-    max-width: 600px;
-    border-radius: 10px;
+    max-width: 400px;
+    border-radius: 15px;
     text-align: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    margin-top: 10%;
 }
 
-.modal-cita .form-control {
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 5px;
-    width: 100%;
-    border: 1px solid #ccc;
+.modal-cita.open {
+    display: flex;
 }
 
-.send-btn {
-    background-color: #007bff;
-    color: white;
+.modal-cita-description {
+    color: #333;
+    font-size: 1.2em;
+    margin-top: 10px;
 }
 
-.close-btn {
-    background-color: #f44336;
-    color: white;
-}
-
-.modal-cita button:hover {
-    transform: translateY(-3px);
-    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
-}
-
-/* Media Queries para Móviles */
 @media (max-width: 768px) {
     .agenda-cita-btn {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        right: 10px;
-        padding: 12px 25px;
-        font-size: 1em;
+        position: relative;
+        top: auto;
+        right: auto;
+        margin-top: 20px;
+        width: 100%;
+        text-align: center;
     }
 
     .container {
-        width: 95%;
         padding: 15px;
     }
 
-    .section-title {
-        font-size: 1.5em;
-        padding: 10px 20px;
+    .modal-inner {
+        width: 90%;
     }
 
-    .subtitle {
-        text-align: center;
+    .image-card img {
+        width: 100%;
+        height: 120px;
+        object-fit: cover;
     }
 }
