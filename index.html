@@ -10,6 +10,7 @@
   <header>
     <h1 class="title-green title-3d">Bienvenido a Nuestro Estudio</h1>
     <p class="title-green">Disfruta de nuestros servicios de belleza en un ambiente relajante y profesional.</p>
+    <button id="agendaCitaBtn" class="agenda-cita-btn">Agenda tu cita</button>
   </header>
 
   <!-- Sección de Uñas -->
@@ -112,17 +113,41 @@
     </div>
   </section>
 
-  <!-- Modal -->
+
+
+  <!-- Modal para mostrar la imagen -->
   <div id="modal" class="modal">
     <div class="modal-inner">
       <img class="modal-content" id="modalImg" alt="Imagen ampliada">
       <p id="modalDescription" class="modal-description"></p>
-      <!-- Enlace a WhatsApp debajo del título en la modal -->
       <a id="whatsappLink" href="#" target="_blank" class="whatsapp-link">
         <img src="https://e7.pngegg.com/pngimages/829/586/png-clipart-whatsapp-logo-whatsapp-logo-desktop-computer-icons-viber-grass-viber-thumbnail.png" alt="WhatsApp"> Contáctanos en WhatsApp
       </a>
     </div>
   </div>
+
+<!-- Modal para agendar cita -->
+<div id="citaModal" class="modal modal-cita">
+  <div class="modal-inner modal-cita-inner">
+    <h2>Agenda tu cita</h2>
+    <form id="agendaCitaForm">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required><br><br>
+      <label for="telefono">Teléfono:</label>
+      <input type="text" id="telefono" name="telefono" required><br><br>
+      <label for="servicio">Servicio:</label>
+      <select id="servicio" name="servicio">
+        <option value="Uñas">Uñas</option>
+        <option value="Peinados">Peinados</option>
+      </select><br><br>
+      <div class="button-container">
+        <button type="submit" class="send-btn">Enviar</button>
+        <button type="button" id="cerrarModal" class="close-btn">Cerrar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
 
   <!-- Pie de página -->
   <footer>
