@@ -279,7 +279,9 @@ header, footer {
 
 /* Modal específica de citas */
 .modal-cita {
-    display: flex;
+    display: none;
+    position: fixed;
+    z-index: 1000;
     justify-content: center;
     align-items: center;
     flex-direction: column;
