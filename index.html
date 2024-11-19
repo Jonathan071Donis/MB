@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bienvenido a Nuestro Estudio</title>
   <link rel="stylesheet" href="salon.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 <body>
   <header>
@@ -150,6 +152,15 @@
   </div>
 </div>
 
+<!-- Modal -->
+<div id="infoModal" class="modal">
+  <div class="modal-inner">
+   
+    <button id="cerrar" class="close-bt">Cerrar</button>
+    <img src="img/Informacion.jpg" alt="Información General" class="modal-content">
+    <p class="modal-caption"> Estudio MB</p>
+  </div>
+</div>
 
   <!-- Pie de página -->
   <footer>
@@ -157,6 +168,8 @@
     <a href="https://www.facebook.com/profile.php?id=100064745709042" target="_blank" class="facebook-link">
       <img src="https://static.vecteezy.com/system/resources/previews/018/930/698/non_2x/facebook-logo-facebook-icon-transparent-free-png.png" alt="Facebook" width="30"> Página de Facebook
     </a>
+
+    <button id="infoButton" class="btn-3d">Información General</button>
   </footer>
   <script src="uñas.js"></script>
 </body>

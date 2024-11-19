@@ -27,6 +27,7 @@ function showModal(imageSrc, description) {
     modal.style.display = "none";
   }
   
+
   document.getElementById("agendaCitaBtn").addEventListener("click", function() {
     document.getElementById("citaModal").style.display = "flex";
 });
@@ -55,11 +56,70 @@ document.getElementById("agendaCitaForm").addEventListener("submit", function(ev
     const message = `Hola, necesito agendar una cita para el servicio de ${servicio}. Nombre: ${nombre}, Teléfono: ${telefono}`;
     const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
-    // Abrir WhatsApp en una nueva ventana pero mantener al usuario en la misma página
-    window.open(whatsappLink, "_blank");
+    // Abre WhatsApp en una nueva pestaña sin redirigir la página actual
+    window.open(whatsappLink, '_blank');
 
     // Limpiar y cerrar la modal de citas
     document.getElementById("agendaCitaForm").reset();
     document.getElementById("citaModal").style.display = "none";
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const modal = document.getElementById("infoModal");
+  const btn = document.getElementById("infoButton"); // Este botón debe existir en tu HTML
+  const closeBtn = document.getElementById("cerrar"); // Usamos el id 'cerrarModal' ahora
+
+  // Mostrar la modal cuando se hace clic en el botón
+  btn.addEventListener("click", function() {
+      modal.style.display = "block";  // Muestra la modal
+  });
+
+  // Cerrar la modal cuando se hace clic en el botón de cerrar
+  closeBtn.addEventListener("click", function() {
+      modal.style.display = "none";  // Oculta la modal
+  });
+
+  // Cerrar la modal si se hace clic fuera de la modal
+  window.addEventListener("click", function(event) {
+      if (event.target === modal) {
+          modal.style.display = "none";  // Cierra la modal si se hace clic fuera de ella
+      }
+  });
+});
+
+Swal.fire({
+  title: '<b>Bienvenido al Estudio MB</b>', // Título en negrita
+  text: '¡Gracias por elegirnos, tu satisfacción es nuestra prioridad!',
+  imageUrl: 'https://media.gettyimages.com/id/1169780650/es/vector/manicura.jpg?s=612x612&w=gi&k=20&c=P8okl3YtsYAebkmf8E_hSHpw9C4PutBRIBIXCvQfypc=', // URL de la imagen
+  imageWidth: 200,  // Ajusta el tamaño de la imagen (más grande)
+  imageHeight: 200, // Ajusta el tamaño de la imagen (más grande)
+  imageAlt: 'Imagen personalizada',
+  showConfirmButton: false,
+  timer: 5000,
+  customClass: {
+    popup: 'swal-popup-custom' // Aplicamos una clase CSS personalizada
+  }
+});
+
+// Agregar estilo personalizado
+const style = document.createElement('style');
+style.innerHTML = `
+  .swal-popup-custom {
+    background-color: #7fffd4; /* Color verde menta */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Efecto de sombra 3D */
+  }
+  .swal-popup-custom .swal-title {
+    font-size: 24px; /* Tamaño del título */
+    font-weight: bold; /* Negrita */
+  }
+  .swal-popup-custom .swal-text {
+    font-size: 16px; /* Tamaño del texto */
+  }
+  .swal-popup-custom .swal-image {
+    border-radius: 50%; /* Hacer la imagen redonda */
+    border: 5px solid #fff; /* Borde blanco alrededor de la imagen */
+  }
+`;
+document.head.appendChild(style);
 

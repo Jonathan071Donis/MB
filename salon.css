@@ -55,6 +55,12 @@ header, footer {
     margin-top: 10px;
 }
 
+
+
+/*modal para informacion general */
+
+
+
 .agenda-cita-btn {
     position: absolute;
     top: 20px;
@@ -239,6 +245,108 @@ header, footer {
     margin-right: 5px;
 }
 
+
+/* Botón con efecto 3D */
+.btn-3d {
+    background-color: #3EB489; /* Verde menta */
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 5px #2A7A62, 0 10px 15px rgba(0, 0, 0, 0.5); /* Efecto 3D */
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.btn-3d:hover {
+    transform: translateY(-3px); /* Eleva el botón */
+    box-shadow: 0 8px #2A7A62, 0 12px 20px rgba(0, 0, 0, 0.6); /* Más sombreado */
+}
+
+.btn-3d:active {
+    transform: translateY(2px); /* Simula presión */
+    box-shadow: 0 2px #2A7A62, 0 6px 10px rgba(0, 0, 0, 0.4); /* Sombra reducida */
+}
+
+/* Estilo general para la modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
+}
+
+/* Centrar y hacer la modal más pequeña */
+.modal-inner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%; /* Modal más pequeña */
+    max-width: 300px; /* Límite máximo de tamaño */
+    padding: 15px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Imagen dentro de la modal */
+.modal-content {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilo del botón de cierre */
+.close-bt {
+    position: absolute;
+    top: 5px; /* Ajustado más cerca de la esquina */
+    right: 8px;
+    padding: 8px 12px; /* Espaciado adecuado */
+    background-color: #f44336; /* Rojo */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.close-bt:hover {
+    background-color: #d32f2f; /* Rojo oscuro */
+    transform: scale(1.1); /* Ligera ampliación al pasar el ratón */
+}
+
+/* Texto dentro de la modal */
+.modal-caption {
+    text-align: center;
+    color: black;
+    font-size: 14px;
+    margin-top: 10px;
+    font-family: Arial, sans-serif;
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -45%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+
 /* Botones "Enviar" y "Cerrar" en horizontal */
 .button-container {
     display: flex;
@@ -313,6 +421,12 @@ header, footer {
     font-size: 1.2em;
     margin-top: 10px;
 }
+
+
+
+
+
+
 
 @media (max-width: 768px) {
     .agenda-cita-btn {
