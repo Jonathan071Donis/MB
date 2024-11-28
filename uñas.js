@@ -1,32 +1,80 @@
-// Lógica existente para mostrar y cerrar la modal de imágenes
 function showModal(imageSrc, description) {
-    const modal = document.getElementById("modal");
-    const modalImg = document.getElementById("modalImg");
-    const modalDescription = document.getElementById("modalDescription");
-    const whatsappLink = document.getElementById("whatsappLink");
-  
-    modal.style.display = "flex";
-    modalImg.src = imageSrc;
-    modalDescription.innerText = description;
-  
-    // Construir el enlace de WhatsApp
-    const phoneNumber = "50246058198"; // Reemplaza con el número de WhatsApp
-    const message = `Hola, quiero consultar sobre: ${description}`;
-    whatsappLink.href = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-  
-    // Cerrar el modal si se hace clic fuera de la imagen
-    modal.addEventListener("click", function(event) {
-      if (event.target == modal) {
-        closeModal();
-      }
-    });
+  const modal = document.getElementById("modal");
+  const modalImg = document.getElementById("modalImg");
+  const modalDescription = document.getElementById("modalDescription");
+  const whatsappLink = document.getElementById("whatsappLink");
+
+  // Mostrar la modal y resetear estilos
+  modal.style.display = "flex";
+
+  // Ocultar contenido real de la modal temporalmente
+  modalImg.style.display = "none";
+  modalDescription.style.display = "none";
+  whatsappLink.style.display = "none";
+
+  // Mostrar el texto inicial "ESTUDIO MB" en estilo de carta
+  modal.innerHTML = `
+      <div class="modal-inner">
+          <div class="modal-message">ESTUDIO MB</div>
+      </div>
+  `;
+
+  // Listener para cerrar la modal al hacer clic fuera
+  setTimeout(() => {
+      document.addEventListener("click", closeModalOnOutsideClick);
+
+      // Mostrar el contenido real después de 2 segundos
+      setTimeout(() => {
+          modal.innerHTML = `
+              <div class="modal-inner">
+                  <img class="modal-content" id="modalImg" alt="Imagen ampliada">
+                  <p id="modalDescription" class="modal-description"></p>
+                  <a id="whatsappLink" href="#" target="_blank" class="whatsapp-link">
+                      <img src="https://e7.pngegg.com/pngimages/829/586/png-clipart-whatsapp-logo-whatsapp-logo-desktop-computer-icons-viber-grass-viber-thumbnail.png" alt="WhatsApp"> Contáctanos en WhatsApp
+                  </a>
+              </div>
+          `;
+
+          // Referenciar de nuevo los elementos (ya que el contenido se reemplazó)
+          const modalImg = document.getElementById("modalImg");
+          const modalDescription = document.getElementById("modalDescription");
+          const whatsappLink = document.getElementById("whatsappLink");
+
+          // Asignar contenido real
+          modalImg.src = imageSrc;
+          modalImg.style.display = "block"; // Mostrar la imagen
+          modalDescription.innerText = description;
+          modalDescription.style.display = "block"; // Mostrar la descripción
+          whatsappLink.style.display = "flex"; // Mostrar el botón de WhatsApp
+
+          // Construir el enlace de WhatsApp
+          const phoneNumber = "50246058198"; // Reemplaza con el número de WhatsApp
+          const message = `Hola, quiero consultar sobre: ${description}`;
+          whatsappLink.href = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+      }, 2000); // Tiempo de retraso en milisegundos (2 segundos)
+  }, 0);
+}
+
+// Función para cerrar la modal
+function closeModal() {
+  const modal = document.getElementById("modal");
+  modal.style.display = "none";
+
+  // Remover el listener de clics fuera de la modal
+  document.removeEventListener("click", closeModalOnOutsideClick);
+}
+
+// Función para cerrar la modal si se hace clic fuera del contenido
+function closeModalOnOutsideClick(event) {
+  const modal = document.getElementById("modal");
+  const modalInner = modal.querySelector(".modal-inner");
+
+  // Si se hace clic fuera de modal-inner, cerrar la modal
+  if (modal.style.display === "flex" && !modalInner.contains(event.target)) {
+      closeModal();
   }
-  
-  function closeModal() {
-    const modal = document.getElementById("modal");
-    modal.style.display = "none";
-  }
-  
+}
+
 
   document.getElementById("agendaCitaBtn").addEventListener("click", function() {
     document.getElementById("citaModal").style.display = "flex";

@@ -229,6 +229,35 @@ header, footer {
     margin-top: 10px;
 }
 
+
+.modal-preload {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Cursive", serif;
+    font-size: 2em;
+    color: white;
+    z-index: 1500;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    display: none;
+    text-align: center;
+}
+
+.modal-message {
+    font-family: "Cursive", serif;
+    font-size: 2em;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    margin: auto;
+    text-align: center;
+}
+
+
 .facebook-link {
     display: flex;
     align-items: center;
