@@ -146,6 +146,14 @@ Swal.fire({
   timer: 5000,
   customClass: {
     popup: 'swal-popup-custom' // Aplicamos una clase CSS personalizada
+  },
+  didOpen: () => {
+    // Activar nieve al abrir
+    startSnowEffect();
+  },
+  willClose: () => {
+    // Detener nieve al cerrar
+    stopSnowEffect();
   }
 });
 
@@ -168,6 +176,54 @@ style.innerHTML = `
     border-radius: 50%; /* Hacer la imagen redonda */
     border: 5px solid #fff; /* Borde blanco alrededor de la imagen */
   }
+
+  /* Estilo para la nieve */
+  .snowflake {
+    position: fixed;
+    top: -10px;
+    width: 10px;
+    height: 10px;
+    background: white;
+    opacity: 0.8;
+    border-radius: 50%;
+    animation: fall linear infinite;
+  }
+
+  @keyframes fall {
+    0% {
+      transform: translateY(-10px);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(100vh);
+      opacity: 0;
+    }
+  }
 `;
 document.head.appendChild(style);
+
+// Lógica para el efecto de nieve
+let snowInterval;
+
+function createSnowflake() {
+  const snowflake = document.createElement('div');
+  snowflake.classList.add('snowflake');
+  snowflake.style.left = Math.random() * window.innerWidth + 'px';
+  snowflake.style.animationDuration = 2 + Math.random() * 3 + 's'; // Duración aleatoria
+  snowflake.style.opacity = Math.random();
+  snowflake.style.transform = `scale(${Math.random()})`; // Tamaño aleatorio
+  document.body.appendChild(snowflake);
+
+  // Eliminar la nieve después de caer
+  setTimeout(() => snowflake.remove(), 5000);
+}
+
+function startSnowEffect() {
+  snowInterval = setInterval(createSnowflake, 100); // Crear copos de nieve cada 100ms
+}
+
+function stopSnowEffect() {
+  clearInterval(snowInterval); // Detener la creación de nuevos copos
+  document.querySelectorAll('.snowflake').forEach(snowflake => snowflake.remove()); // Eliminar copos existentes
+}
 
